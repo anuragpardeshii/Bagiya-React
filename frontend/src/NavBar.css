@@ -1,0 +1,12 @@
+.new-btn {
+    border: 0.1rem solid #fff;
+    border-radius: 1.5rem;
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: .5rem;
+    background-color: #366827;
+}
+
+.navbar-h {
+    height: 10vh;
+}

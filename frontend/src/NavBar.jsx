@@ -1,10 +1,19 @@
+import "./NavBar.css";
+
 function LogIn() {
   return (
     <>
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <nav
+        class="navbar navbar-expand-lg position-sticky top-0 navbar-h"
+        style={{ zIndex: "12" }}
+      >
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
-            Navbar
+            <img
+              src="Media/images/Bagiya_logo.png"
+              alt="logo"
+              style={{ height: "3rem" }}
+            />
           </a>
           <button
             class="navbar-toggler"
@@ -17,22 +26,12 @@ function LogIn() {
           >
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-              <a class="nav-link active" aria-current="page" href="#">
-                Home
-              </a>
-              <a class="nav-link" href="#">
-                Features
-              </a>
-              <a class="nav-link" href="#">
-                Pricing
-              </a>
-              <a class="nav-link disabled" aria-disabled="true">
-                Disabled
-              </a>
-            </div>
-          </div>
+          <div
+            class="collapse navbar-collapse d-flex justify-content-center"
+            id="navbarNavAltMarkup"
+          ></div>
+          <button className="btn new-btn">Dashboard</button>
+          <button className="btn new-btn">LogIn/SignUp</button>
         </div>
       </nav>
     </>

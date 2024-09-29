@@ -1,0 +1,19 @@
+.main-content{
+    background-color: #366827;
+    padding: 1.5rem 3rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content h3{
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.stage-container img:hover{
+    transform: scale(1.1); 
+    transition: 1.2s;
+}
