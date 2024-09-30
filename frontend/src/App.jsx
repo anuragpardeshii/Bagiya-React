@@ -5,6 +5,9 @@ import NavBar from './NavBar';
 import Hero from './Hero';
 import Features from './Features';
 import Uses from './Uses';
+import Community from './Community';
+import EarnCoins from './EarnCoins';
+import Footer from './Footer';
 
 function App() {
   return (
@@ -13,6 +16,9 @@ function App() {
       <Hero />
       <Features />
       <Uses />
+      <EarnCoins />
+      <Community />
+      <Footer />
     </>
   )
 }

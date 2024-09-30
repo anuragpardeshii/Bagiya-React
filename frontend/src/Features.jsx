@@ -4,7 +4,7 @@ function Features() {
   return (
     <>
       <div className="main-content">
-        <h3 className="mb-5">
+        <h3 className="m-4 text-center" style={{color: "white", fontSize: "2rem", fontWeight: "600"}}>
           Bagiya is an app that helps you stay focused on what matters, while
           supporting real tree planting for a greener world.
         </h3>
@@ -14,7 +14,7 @@ function Features() {
             style={{ maxWidth: "300px" }}
           >
             <img
-              className="m-auto mt-2"
+              className="m-auto mt-5"
               style={{
                 height: "12rem",
                 width: "12rem",
@@ -35,7 +35,7 @@ function Features() {
             style={{ maxWidth: "300px" }}
           >
             <img
-              className="m-auto"
+              className="m-auto mt-5"
               style={{
                 height: "12rem",
                 width: "12rem",
@@ -56,7 +56,7 @@ function Features() {
             style={{ maxWidth: "300px" }}
           >
             <img
-              className="m-auto"
+              className="m-auto mt-5"
               style={{
                 height: "12rem",
                 width: "12rem",

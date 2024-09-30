@@ -1,72 +1,63 @@
+import './Uses.css';
+
 function Uses() {
   return (
     <>
-      <div className="main-content">
-        <h3 className="mb-5" style={{color: "#366827"}}> 
+      <div className="main-content2">
+      <h3 className="m-4 text-center" style={{color: "#366827", fontSize: "2rem", fontWeight: "700"}}> 
           Stay attentive wherever you are, whenever you are.
         </h3>
-        <div className="d-flex m-auto justify-content-around align-items-center m-auto flex-wrap stage-container">
+        <div className="d-flex m-auto justify-content-around align-items-center m-auto flex-wrap">
           <div
-            className="d-flex flex-column p-1 text-center"
-            style={{ maxWidth: "300px" }}
+            className="d-flex flex-column p-1 text-center m-3"
+            style={{ maxWidth: "360px" }}
           >
             <img
-              className="m-auto mt-2"
+                className='mt-3'
               style={{
-                height: "12rem",
-                width: "12rem",
                 boxShadow:
                   "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
-                borderRadius: "8rem",
-                padding: ".5rem",
+                borderRadius: ".5rem",
               }}
-              src="Media/images/progress/cropped-image1.png"
+              src="Media/images/1.png"
               alt=""
             />
-            <p className="mt-1" style={{ fontSize: "1.2rem", padding: "1rem", color: "white" }}>
-              Enhance your focus with planting a tree
+            <p className="mt-1" style={{ fontSize: "1.5rem", padding: "1rem", color: "#366827", fontWeight: "700"}}>
+              At the office
             </p>
           </div>
           <div
-            className="d-flex flex-column p-1 text-center"
-            style={{ maxWidth: "300px" }}
+            className="d-flex flex-column p-1 text-center m-3"
+            style={{ maxWidth: "360px" }}
           >
             <img
-              className="m-auto"
               style={{
-                height: "12rem",
-                width: "12rem",
                 boxShadow:
                   "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
-                borderRadius: "8rem",
-                padding: ".5rem",
+                borderRadius: ".5rem",
               }}
-              src="Media/images/progress/cropped-image1.png"
+              src="Media/images/2.png"
               alt=""
             />
-            <p className="mt-1" style={{ fontSize: "1.2rem", padding: "1rem", color: "white" }}>
-              Your tree will grow as you stay focused on your work
+            <p className="mt-1" style={{ fontSize: "1.5rem", padding: "1rem", color: "#366827", fontWeight: "700"}}>
+              In the Library
             </p>
           </div>
           <div
-            className="d-flex flex-column p-1 text-center"
-            style={{ maxWidth: "300px" }}
+            className="d-flex flex-column p-1 text-center m-3"
+            style={{ maxWidth: "360px" }}
           >
             <img
-              className="m-auto"
               style={{
-                height: "12rem",
-                width: "12rem",
                 boxShadow:
                   "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
-                borderRadius: "8rem",
-                padding: ".5rem",
+                borderRadius: ".5rem",
               }}
-              src="Media/images/progress/cropped-image1.png"
+              src="Media/images/3.png"
               alt=""
             />
-            <p className="mt-1" style={{ fontSize: "1.2rem", padding: "1rem", color: "white" }}>
-              Abandoning the app midway will cause your tree to wither
+            <p className="mt-1" style={{ fontSize: "1.5rem", padding: "1rem", color: "#366827", fontWeight: "700"}}>
+              While Socialising
             </p>
           </div>
         </div>

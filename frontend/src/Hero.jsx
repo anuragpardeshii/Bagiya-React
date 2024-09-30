@@ -7,7 +7,7 @@ function Hero() {
       <div className="row">
         <div className="col-5 text-center" style={{alignItems: "center", display: "flex", justifyContent: "center", flexDirection: "column", padding: "5rem"}}>
           <img src="Media/images/Bagiya_logo.png" alt="logo" />
-          <h1 style={{ color: "#366827", fontWeight: "700", fontSize: "3rem" }}>
+          <h1 style={{ color: "#366827", fontWeight: "700", fontSize: "3rem"}}>
             THE GREENEST WAY TO FOCUS!
           </h1>
         </div>
