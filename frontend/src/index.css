@@ -1,5 +1,52 @@
 :root {
+  --dark-green2: #366827;
+  --dark-green: #4eb700;
+  --light-greenp: #85ce14;
+  --white: #fff;
+  --light-green: #84d232;
+  --light-bg: #eee;
+  --border:.1rem solid rgba(0,0,0,.2);
+}
+
+:root {
   padding: 0;
   margin: 0;
   width: 100%;
+}
+
+/* .Timer-App {
+  font-family: sans-serif;
+  text-align: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+.imageContainer {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+.tminute {
+  font-weight: 700;
+  background: -webkit-linear-gradient(#4eb700, #85ce14);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.minute {
+  font-size: 18px;
+  line-height: 15px;
+  font-weight: 700;
+  background: -webkit-linear-gradient(#4eb700, #85ce14);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.main {
+  margin-left: 250px;
 }
