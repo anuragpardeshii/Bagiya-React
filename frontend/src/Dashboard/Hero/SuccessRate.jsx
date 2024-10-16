@@ -2,20 +2,19 @@ import * as React from 'react';
 import { PieChart } from '@mui/x-charts/PieChart';
 import { useDrawingArea } from '@mui/x-charts/hooks';
 import { styled } from '@mui/material/styles';
-import { colors } from '@mui/material';
 
 const data = [
-    { label: 'Study', value: 40, color: "#83cc14"},
-    { label: 'Games', value: 20, color: "#bce029"},
-    { label: 'Movies', value: 25, color: "#ffed4d" },
-    { label: 'Books', value: 15, color: "#ffb84d" },
+  { label: 'Failure', value: 3, color: "#EE4B2B" },
+  { label: 'Success', value: 10, color: "#83cc14" },
 ];
 
+// Size of the chart
 const size = {
   width: 340,
   height: 200,
 };
 
+// Styled text for the center label
 const StyledText = styled('text')(({ theme }) => ({
   fill: theme.palette.text.primary,
   textAnchor: 'middle',
@@ -33,13 +32,16 @@ function PieCenterLabel({ children }) {
 }
 
 export default function PieChartWithCenterLabel() {
+  // Calculate total attempts
+  const totalAttempts = data.reduce((acc, curr) => acc + curr.value, 0);
+
   return (
     <>
-    <h4 className="border-bottom text-center p-3 fw-semibold" style={{color: "#85ce14"}}>Tags</h4>
-    <div className='mt-5 d-flex'>
-    <PieChart series={[{ data, innerRadius: 70 }]} {...size}>
-      <PieCenterLabel>Tags</PieCenterLabel>
-    </PieChart>
+    <h4 className="border-bottom text-center p-3 fw-semibold" style={{color: "#85ce14"}}>Success Rate</h4>
+    <div className='mt-5 d-flex flex-column align-items-center'>
+      <PieChart series={[{ data, innerRadius: 70 }]} {...size}>
+        <PieCenterLabel>Attempts: <br /> {totalAttempts}</PieCenterLabel>
+      </PieChart>
     </div>
     </>
   );

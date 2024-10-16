@@ -1,4 +1,5 @@
 import "./NavBar.css";
+import { Link } from "react-router-dom";
 
 function LogIn() {
   return (
@@ -30,7 +31,7 @@ function LogIn() {
             class="collapse navbar-collapse d-flex justify-content-center"
             id="navbarNavAltMarkup"
           ></div>
-          <button className="btn new-btn">Dashboard</button>
+          <Link to="/dashboard"><button  className="btn new-btn">Dashboard</button></Link>
           <button className="btn new-btn"><a href="/login" style={{textDecoration: "none", color: "white"}}>LogIn/SignUp</a></button>
         </div>
       </nav>

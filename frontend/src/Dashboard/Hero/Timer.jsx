@@ -1,18 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { CircleSlider } from "react-circle-slider";
-import Countdown from "react-countdown"; // Ensure this is imported
+import Countdown from "react-countdown";
+import QuitConfirmationPopup from "./QuitConfirmationPopup"; // Popup component
 
 function Timer() {
   const [value, setValue] = useState(60); // Initial time in minutes
-  const [startCountdown, setStartCountdown] = useState(false);
-  const [key, setKey] = useState(0); // Key to reset the countdown
+  const [timeLeft, setTimeLeft] = useState(value * 60000); // Track remaining time in ms
+  const [isModalOpen, setIsModalOpen] = useState(false); // State to handle the popup
+  const [isPaused, setIsPaused] = useState(false); // Paused state
+  const [startCountdown, setStartCountdown] = useState(false); // Timer start state
+  const countdownRef = useRef(null); // Reference to countdown
 
   // Handle slider value change
   const handleSliderChange = (newValue) => {
     setValue(newValue);
+    setTimeLeft(newValue * 60000); // Update the time left in milliseconds
   };
 
-  
   // Renderer for countdown
   const renderer = ({ hours, minutes, seconds, completed }) => {
     if (completed) {
@@ -20,22 +24,42 @@ function Timer() {
     } else {
       return (
         <span>
-          {hours}:{minutes}:{seconds}
+          {String(hours).padStart(2, '0')}:{String(minutes).padStart(2, '0')}:{String(seconds).padStart(2, '0')}
         </span>
       );
     }
   };
 
   // Function to start the countdown
-  const Start = () => {
-    setStartCountdown(true);
+  const startTimer = () => {
+    setStartCountdown(true); // Start the countdown
+    setIsPaused(false); // Ensure timer is not paused
   };
 
   // Function to reset the countdown
-  const Reset = () => {
-    setKey((prevKey) => prevKey + 1); // Change key to reset countdown
+  const resetTimer = () => {
     setStartCountdown(false); // Stop countdown
+    setIsPaused(false); // Ensure the countdown isn't paused
     setValue(60); // Reset slider value to 60 minutes
+    setTimeLeft(60 * 60000); // Reset time left to initial value
+  };
+
+  // Function to stop the countdown after confirmation
+  const handleConfirmQuit = () => {
+    resetTimer(); // Reset countdown and stop
+    setIsModalOpen(false); // Close popup
+  };
+
+  // Function to close the popup and keep the timer running
+  const handleKeepFocusing = () => {
+    setIsPaused(false); // Resume the countdown
+    setIsModalOpen(false); // Close popup
+  };
+
+  // Open the confirmation popup
+  const handleGiveUpClick = () => {
+    setIsPaused(true); // Pause the countdown
+    setIsModalOpen(true); // Open popup
   };
 
   return (
@@ -67,35 +91,54 @@ function Timer() {
         circleWidth={20}
       />
       <div className="textContainer text-center p-2 col">
-        {/* Conditionally render the value only when the countdown has not started */}
-        {!startCountdown && (
+        {!startCountdown ? (
           <h2 className="minute" style={{ color: "#85ce14", fontSize: "3rem" }}>
             {value}
-            <div className="minute p-2" ><h4 style={{fontSize: "1.2rem"}}> MINUTES </h4> </div>
+            <div className="minute p-2">
+              <h4 style={{ fontSize: "1.2rem" }}> MINUTES </h4>
+            </div>
           </h2>
-        )}
-        <h3 className="minute" style={{ color: "#85ce14", fontSize: "3rem" }}>
-          {startCountdown && (
+        ) : (
+          <h3 className="minute" style={{ color: "#85ce14", fontSize: "3rem" }}>
             <Countdown
-              key={key} // Use key to reset countdown
-              date={Date.now() + value * 60000} // Convert minutes to milliseconds
+              ref={countdownRef} // Reference to the countdown
+              date={Date.now() + timeLeft} // Use saved timeLeft to continue countdown
+              autoStart={!isPaused} // Only start if not paused
               renderer={renderer}
+              onComplete={resetTimer} // Reset timer when complete
             />
-          )}
-        </h3>
-        <div className="d-flex justify-content-evenly align-items-center flex-column">
-        {!startCountdown && (
-          <button style={{backgroundColor: "#85ce14", color: "white", width: "8rem"}} onClick={Start} type="button" className="btn m-2">
-            Start
-          </button>
+          </h3>
         )}
-        {startCountdown && (
-          <button style={{backgroundColor: "#85ce14", color: "white", width: "8rem"}} onClick={Reset} type="button" className="btn m-2">
-            Give Up!
-          </button>
+        <div className="d-flex justify-content-evenly align-items-center flex-column">
+          {!startCountdown ? (
+            <button
+              style={{ backgroundColor: "#85ce14", color: "white", width: "8rem" }}
+              onClick={startTimer}
+              type="button"
+              className="btn m-2"
+            >
+              Start
+            </button>
+          ) : (
+            <button
+              style={{ backgroundColor: "#85ce14", color: "white", width: "8rem" }}
+              onClick={handleGiveUpClick} // Show the confirmation popup
+              type="button"
+              className="btn m-2"
+            >
+              Give Up!
+            </button>
           )}
         </div>
       </div>
+
+      {/* Render the popup if isModalOpen is true */}
+      {isModalOpen && (
+        <QuitConfirmationPopup
+          onConfirmQuit={handleConfirmQuit} // Stop the timer
+          onKeepFocusing={handleKeepFocusing} // Close popup and continue
+        />
+      )}
     </div>
   );
 }
